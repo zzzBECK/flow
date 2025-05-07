@@ -72,9 +72,13 @@ export function QuestionNode({
         />
       </CardHeader>
 
-      <CardContent className="p-3 space-y-2">
+      <CardContent className="p-3 space-y-2 relative">
         {nodeData.options.map((option, index) => (
-          <div key={option.id} className="flex items-center space-x-2">
+          <div
+            key={option.id}
+            className="flex items-center space-x-2"
+            style={{ position: "relative" }}
+          >
             <Input
               value={option.text}
               onChange={(e) => updateOptionText(option.id, e.target.value)}
@@ -97,8 +101,7 @@ export function QuestionNode({
               type="source"
               position={Position.Right}
               isConnectable={isConnectable}
-              className="w-2 h-2 bg-blue-500 -right-4"
-              style={{ top: `${index * 40 + 20}px` }}
+              className="w-2 h-2 bg-blue-500 absolute right-[-16px] top-1/2"
             />
           </div>
         ))}
